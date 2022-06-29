@@ -29,7 +29,7 @@ namespace Day02
             numbers.Add(5);//Count: 8, Capacity: 8
             numbers.Add(5);
             Info(numbers);//Count: 9, Capacity: 16
-            Console.WriteLine(numbers[13]);
+            //Console.WriteLine(numbers[13]);
 
             ListChallenge();
         }
@@ -57,6 +57,23 @@ namespace Day02
             {
                 grades.Add(rando.NextDouble()*100);
             }
+            PrintGrades(grades);
+        }
+
+        static void PrintGrades(List<double> courseGrades)
+        {
+            Console.WriteLine("----------GRADES-----------");
+            foreach (double grade in courseGrades)
+            {
+                //,8  right-align in 8 spaces
+                //:N2 number with 2 decimal places
+                Console.WriteLine($"{grade,8:N2}");
+            }
+            //OR
+            //for (int i = 0; i < courseGrades.Count; i++)
+            //{
+
+            //}
         }
 
         static void Info(List<int> list)
