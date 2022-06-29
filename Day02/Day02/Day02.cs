@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,9 +56,36 @@ namespace Day02
 
             for (int i = 0; i < 10; i++)
             {
-                grades.Add(rando.NextDouble()*100);
+                grades.Add(rando.NextDouble() * 100);
             }
             PrintGrades(grades);
+            int numDropped = DropFailing(grades);
+            Console.WriteLine($"Dropped {numDropped} from the course.");
+            PrintGrades(grades);
+        }
+
+        static int DropFailing(List<double> course)
+        {
+            int drops = 0;
+            for (int i = 0; i < course.Count; i++)
+            {
+                if (course[i] < 59.5)
+                {
+                    course.RemoveAt(i);
+                    drops++;
+                    i--;
+                }
+            }
+            //OR use a reverse for loop
+            //for (int i = course.Count - 1; i >= 0; i--)
+            //{
+            //    if (course[i] < 59.5)
+            //    {
+            //        course.RemoveAt(i);
+            //        drops++;
+            //    }
+            //}
+            return drops;
         }
 
         static void PrintGrades(List<double> courseGrades)
@@ -69,10 +97,10 @@ namespace Day02
                 //:N2 number with 2 decimal places
                 Console.WriteLine($"{grade,8:N2}");
             }
-            //OR
+            //OR with a for loop
             //for (int i = 0; i < courseGrades.Count; i++)
             //{
-
+            //    Console.WriteLine($"{courseGrades[i],8:N2}");
             //}
         }
 
