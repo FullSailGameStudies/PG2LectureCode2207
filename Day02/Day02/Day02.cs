@@ -32,6 +32,9 @@ namespace Day02
             Info(numbers);//Count: 9, Capacity: 16
             //Console.WriteLine(numbers[13]);
 
+            List<int> num2 = numbers.ToList();
+            num2 = new List<int>(numbers);
+
             ListChallenge();
         }
 
@@ -47,6 +50,9 @@ namespace Day02
             {
                 Console.WriteLine(number);
             }
+
+            List<int> numList1 = nums.ToList();
+            List<int> numList2 = new List<int>(nums);
         }
 
         static void ListChallenge()
@@ -62,6 +68,22 @@ namespace Day02
             int numDropped = DropFailing(grades);
             Console.WriteLine($"Dropped {numDropped} from the course.");
             PrintGrades(grades);
+            Console.WriteLine("Curving grades...");
+            List<double> curvedGrades = CurveGrades(grades);
+            PrintGrades(curvedGrades);
+        }
+
+        static List<double> CurveGrades(List<double> course)
+        {
+            List<double> curved = course.ToList();
+            for (int i = 0; i < curved.Count; i++)
+            {
+                //if (curved[i] > 95) curved[i] = 100;
+                //else curved[i] += 5;
+                //OR use a ternary operator
+                curved[i] = (curved[i] > 95) ? 100 : curved[i] + 5;
+            }
+            return curved;
         }
 
         static int DropFailing(List<double> course)
