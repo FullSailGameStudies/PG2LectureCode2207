@@ -8,6 +8,7 @@ namespace Day02
     {
         static void Main(string[] args)
         {
+            Day02.Run();
         }
     }
 }

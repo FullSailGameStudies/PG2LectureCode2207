@@ -17,11 +17,45 @@ namespace Day01
             Random rando = new Random();
             n1 = rando.Next(100);
             n2 = rando.Next(100);
-            result = 0;
-            GetSum(n1, n2, ref result);
+            int result2 = 0;
+            GetSum(n1, n2, ref result2);
             //$ - C# interpolated string
-            Console.WriteLine($"{n1} + {n2} = {result}");
+            Console.WriteLine($"{n1} + {n2} = {result2}");
             Console.WriteLine(DateTime.Now);
+
+            string aNumber = "5";
+            bool didSucceed = IntTryParse(aNumber, out int number);
+            if(didSucceed)
+                Console.WriteLine(number);
+            else
+                Console.WriteLine("ERROR!");
+
+            MyFavoriteNumber(out int myFavorite);
+            Console.WriteLine($"Your favorite number is {myFavorite}? Weird.");
+
+            result = Add(100);
+        }
+
+        static void MyFavoriteNumber(out int fave)
+        {
+            Console.Write("What is your favorite number? ");
+            int.TryParse(Console.ReadLine(), out fave);
+        }
+
+        static bool IntTryParse(string stringToParse, out int theNumber)
+        {
+            bool didParse = false;
+            theNumber = 0;
+            try
+            {
+                theNumber = int.Parse(stringToParse);
+                didParse = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("That was not a number! Steev.");
+            }
+            return didParse;
         }
 
         static void Timestamp(ref string message)
@@ -34,19 +68,19 @@ namespace Day01
             sum = num1 + num2;
         }
 
-        static int Add(int num1, int num2)
+        static int Add(int num1, int num2 = 1)
         {
             num1 += 5;
             int sum = num1 + num2;
             return sum;
         }
 
-        static void PrintMessage()
-        {
-            Console.WriteLine("Hello Gotham!");
-        }
+        //static void PrintMessage()
+        //{
+        //    Console.WriteLine("Hello Gotham!");
+        //}
 
-        static void PrintMessage(string message)
+        static void PrintMessage(string message = "Hello Gotham!")
         {
             Console.WriteLine(message);
         }
