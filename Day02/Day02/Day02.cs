@@ -36,6 +36,17 @@ namespace Day02
             num2 = new List<int>(numbers);
 
             ListChallenge();
+
+            //CSV - comma-separated-values
+            string sentence = "The. quick. brown. fox. jumps. over. the. lazy. dog.";
+            char[] delimiters = new char[] { ' ', '.' };
+            string[] data = sentence.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            int index = 0;
+            Console.WriteLine("-------WORDS--------");
+            foreach (var item in data)
+            {
+                Console.WriteLine($"{++index}. {item}");
+            }
         }
 
         static void ArrayChallenge()
@@ -57,7 +68,7 @@ namespace Day02
 
         static void ListChallenge()
         {
-            List<double> grades = new List<double>();
+            List<double> grades = new();
             Random rando = new Random();
 
             for (int i = 0; i < 10; i++)
@@ -75,7 +86,7 @@ namespace Day02
 
         static List<double> CurveGrades(List<double> course)
         {
-            List<double> curved = course.ToList();
+            List<double> curved = course.ToList();//Clone the original list
             for (int i = 0; i < curved.Count; i++)
             {
                 //if (curved[i] > 95) curved[i] = 100;
