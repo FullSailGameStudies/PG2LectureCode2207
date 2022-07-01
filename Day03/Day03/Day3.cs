@@ -60,6 +60,17 @@ namespace Day03
             menu["choc shake"] = 4.99F;
             menu["choc shake"] = 7.99F;//overwrites. no exception.
 
+            ShowMenu(menu);
+        }
+
+        private static void ShowMenu(Dictionary<string, float> menu)
+        {
+            Console.Clear();
+            Console.WriteLine("------------FullSail Bites-----------");
+            foreach (KeyValuePair<string,float> menuItem in menu)
+            {
+                Console.WriteLine($"{menuItem.Value,8:C2} {menuItem.Key}");
+            }
         }
     }
 }
