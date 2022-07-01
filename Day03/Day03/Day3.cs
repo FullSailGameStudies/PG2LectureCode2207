@@ -46,6 +46,7 @@ namespace Day03
             }
 
             PrintGrades(pg2);
+            DropStudent(pg2);
         }
 
         static void PrintGrades(Dictionary<string, double> course)
@@ -73,6 +74,27 @@ namespace Day03
                 Console.WriteLine($"{grade,7:N2}");
                 Console.ResetColor();
             }
+        }
+
+        private static void DropStudent(Dictionary<string, double> course)
+        {
+            do
+            {
+                Console.Write("Name of student to drop: ");
+                string student = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(student)) break;
+
+                bool wasRemoved = course.Remove(student);
+
+                PrintGrades(course);
+
+                if (wasRemoved)
+                    Console.WriteLine($"{student} was dropped from the course.");
+                else
+                    Console.WriteLine($"{student} was not in the course.");
+
+
+            } while (true);
         }
 
         private static void DictionaryExample()
@@ -105,6 +127,18 @@ namespace Day03
                 Console.WriteLine($"{itemToRemove} was removed from the menu.");
             else
                 Console.WriteLine($"{itemToRemove} was not on the menu.");
+
+            string itemToGet = "fries";
+            if(menu.ContainsKey(itemToGet))
+                Console.WriteLine(menu[itemToGet]);
+
+            if (menu.TryGetValue(itemToGet, out float price))
+            {
+                Console.WriteLine($"{itemToGet} costs was {price:C2}.");
+                price += 2;
+                menu[itemToGet] += 2;//overwrite the old price
+                Console.WriteLine($"{itemToGet} now costs {menu[itemToGet]:C2}. Thanks Putin!");
+            }
         }
 
         private static void ShowMenu(Dictionary<string, float> menu)
