@@ -47,6 +47,7 @@ namespace Day03
 
             PrintGrades(pg2);
             DropStudent(pg2);
+            CurveStudent(pg2);
         }
 
         static void PrintGrades(Dictionary<string, double> course)
@@ -90,6 +91,26 @@ namespace Day03
 
                 if (wasRemoved)
                     Console.WriteLine($"{student} was dropped from the course.");
+                else
+                    Console.WriteLine($"{student} was not in the course.");
+
+
+            } while (true);
+        }
+        private static void CurveStudent(Dictionary<string, double> course)
+        {
+            do
+            {
+                Console.Write("Name of student to curve: ");
+                string student = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(student)) break;
+
+                if(course.TryGetValue(student, out double grade))
+                {
+                    course[student] = (grade > 95) ? 100 : grade + 5;//ternary operator
+                    PrintGrades(course);
+                    Console.WriteLine($"{student} grade was curved.");
+                }
                 else
                     Console.WriteLine($"{student} was not in the course.");
 
