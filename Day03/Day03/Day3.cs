@@ -12,7 +12,15 @@ namespace Day03
         {
             DictionaryExample();
 
+            PressAnyKey();
+
             DictionaryChallenges();
+        }
+
+        static void PressAnyKey()
+        {
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
 
         private static void DictionaryChallenges()
@@ -35,6 +43,30 @@ namespace Day03
                 pg2.Add(students[i], rando.NextDouble() * 100);
                 //OR
                 pg2[students[i]] = rando.NextDouble() * 100;
+            }
+
+            PrintGrades(pg2);
+        }
+
+        static void PrintGrades(Dictionary<string, double> course)
+        {
+            Console.Clear();
+            Console.WriteLine("\t------GRADES-------");
+            foreach (var student in course)
+            {
+                double grade = student.Value;
+                Console.Write($"\t{student.Key}");
+
+                Console.CursorLeft = 20;
+
+                if (grade < 59.5) Console.BackgroundColor = ConsoleColor.Red;
+                else if(grade < 69.5) Console.ForegroundColor = ConsoleColor.DarkYellow;
+                else if (grade < 79.5) Console.ForegroundColor = ConsoleColor.Yellow;
+                else if (grade < 89.5) Console.ForegroundColor = ConsoleColor.Blue;
+                else Console.ForegroundColor = ConsoleColor.Green;
+
+                Console.WriteLine($"{grade,7:N2}");
+                Console.ResetColor();
             }
         }
 
