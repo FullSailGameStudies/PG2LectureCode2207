@@ -51,13 +51,18 @@ namespace Day03
         static void PrintGrades(Dictionary<string, double> course)
         {
             Console.Clear();
-            Console.WriteLine("\t------GRADES-------");
+            string title = "------GRADES-------";
+            int x = Console.WindowWidth / 2;
+            int y = Console.WindowHeight / 2 - course.Count / 2;
+            Console.SetCursorPosition(x - title.Length / 2, y);
+            Console.WriteLine(title);
             foreach (var student in course)
             {
+                Console.CursorLeft = x - 7;
                 double grade = student.Value;
-                Console.Write($"\t{student.Key}");
+                Console.Write($"{student.Key}");
 
-                Console.CursorLeft = 20;
+                Console.CursorLeft = x + 2;
 
                 if (grade < 59.5) Console.BackgroundColor = ConsoleColor.Red;
                 else if(grade < 69.5) Console.ForegroundColor = ConsoleColor.DarkYellow;
@@ -93,6 +98,13 @@ namespace Day03
             menu["choc shake"] = 7.99F;//overwrites. no exception.
 
             ShowMenu(menu);
+
+            string itemToRemove = "tater tots";
+            bool wasRemoved = menu.Remove(itemToRemove);
+            if(wasRemoved)
+                Console.WriteLine($"{itemToRemove} was removed from the menu.");
+            else
+                Console.WriteLine($"{itemToRemove} was not on the menu.");
         }
 
         private static void ShowMenu(Dictionary<string, float> menu)
