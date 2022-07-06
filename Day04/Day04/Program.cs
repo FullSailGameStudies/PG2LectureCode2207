@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Day02
 {
+    enum Superpower
+    {
+        Invincible, Strength, Speed, Money, Swimming
+    }
+    class Superhero
+    {
+        public string Name { get; set; }
+        public string SecretIdentity { get; set; }
+        public Superpower Power { get; set; }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
@@ -48,6 +60,28 @@ namespace Day02
             //OR....use File.ReadAllText to read the entire file
             string lineData = File.ReadAllText(filePath);//opens, reads, closes the file
             string[] dataCSV = lineData.Split(delimiter);
+            #endregion
+
+            #region Serializing
+            List<Superhero> JL = new List<Superhero>();
+            JL.Add(new Superhero() { Name = "Batman", SecretIdentity = "Bruce Wayne", Power = Superpower.Money });
+            JL.Add(new Superhero() { Name = "Superman", SecretIdentity = "Clark Kent", Power = Superpower.Strength });
+            JL.Add(new Superhero() { Name = "Wonder Woman", SecretIdentity = "Diana Prince", Power = Superpower.Strength });
+            JL.Add(new Superhero() { Name = "Flash", SecretIdentity = "Barry Allen", Power = Superpower.Speed });
+            JL.Add(new Superhero() { Name = "Aquaman", SecretIdentity = "Arthur Curry", Power = Superpower.Swimming });
+
+            //change the extension to .json
+            string jsonFile = Path.ChangeExtension(filePath, ".json");
+            using (StreamWriter sw = new StreamWriter(jsonFile))
+            {
+                using (JsonTextWriter jtw = new JsonTextWriter(sw))
+                {
+                    jtw.Formatting = Formatting.Indented;
+                    //serialize the list
+                    JsonSerializer jsonSerializer = new JsonSerializer();
+                    jsonSerializer.Serialize(jtw, JL);
+                }
+            }
             #endregion
 
 
