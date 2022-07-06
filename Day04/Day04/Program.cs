@@ -12,6 +12,7 @@ namespace Day02
             string filePath = @"C:\temp\2207\data.csv";
 
             char delimiter = '>';
+            #region Write CSV
             //1. Open the file
             using (StreamWriter sw = new StreamWriter(filePath))
             {
@@ -25,7 +26,30 @@ namespace Day02
                 sw.Write(13.2);
                 sw.Write(delimiter);
                 sw.Write(571);
-            }//3. closes the file
+            }//3. closes the file 
+            #endregion
+
+            #region Read CSV
+            //1. open the file
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                //2. read the file
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    Console.WriteLine(line);
+                    string[] data = line.Split(delimiter);
+                    foreach (var item in data)
+                    {
+                        Console.WriteLine(item);
+                    }
+                }
+            }//3. close the file
+            //OR....use File.ReadAllText to read the entire file
+            string lineData = File.ReadAllText(filePath);//opens, reads, closes the file
+            string[] dataCSV = lineData.Split(delimiter);
+            #endregion
+
 
             WriteData(filePath);
         }
