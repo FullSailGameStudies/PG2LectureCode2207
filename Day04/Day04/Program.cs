@@ -52,6 +52,24 @@ namespace Day02
 
 
             WriteData(filePath);
+            ReadData(filePath);
+        }
+
+        private static void ReadData(string filePath)
+        {
+            char delimiter = '>';
+            string fileText = File.ReadAllText(filePath);
+            string[] nums = fileText.Split(delimiter);
+            List<int> numbers = new();
+            for (int i = 0; i < nums.Length; i++)
+            {
+                if (int.TryParse(nums[i], out int num))
+                    numbers.Add(num);
+            }
+            foreach (var item in numbers)
+            {
+                Console.WriteLine(item);
+            }
         }
 
         static void WriteData(string fPath)
