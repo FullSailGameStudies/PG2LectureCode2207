@@ -140,7 +140,7 @@ namespace Day02
                 bool isFirst = true;
                 for (int i = 0; i < nums.Count; i++)
                 {
-                    if(!isFirst)
+                    if (!isFirst)
                         sw.Write(delimiter);
                     sw.Write(nums[i]);
                     isFirst = false;
