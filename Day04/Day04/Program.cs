@@ -84,6 +84,29 @@ namespace Day02
             }
             #endregion
 
+            #region Deserializing
+
+            //jsonFile = "data.csv";
+            if (File.Exists(jsonFile))
+            {
+                string jsonData = File.ReadAllText(jsonFile);
+                List<Superhero> JL2;
+                try
+                {
+                    JL2 = JsonConvert.DeserializeObject<List<Superhero>>(jsonData);
+                    foreach (var hero in JL2)
+                    {
+                        Console.WriteLine($"Hello. I am {hero.Name} ({hero.SecretIdentity}). I am good at {hero.Power}.");
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Incorrect file format.");
+                }
+            }
+            else
+                Console.WriteLine($"{jsonFile} does not exists!");
+            #endregion
 
             WriteData(filePath);
             ReadData(filePath);
