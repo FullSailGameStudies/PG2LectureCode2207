@@ -28,6 +28,26 @@ namespace Day06
             if (compResult == 0) Console.WriteLine($"{s1} EQUALS {s2}");
             else if(compResult == -1) Console.WriteLine($"{s1} LESS THAN {s2}");
             else if (compResult == 1) Console.WriteLine($"{s1} GREATER THAN {s2}");
+
+            int number = 77;
+            int index = LinearSearch(nums, number);
+            Console.WriteLine();
+            if (index < 0) Console.WriteLine($"{number} is not found.");
+            else Console.WriteLine($"{number} is at index {index}");
+        }
+
+        static int LinearSearch(List<int> numbers, int itemToFind)
+        {
+            int foundIndex = -1;//-1 means not found
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                if (numbers[i] == itemToFind)
+                {
+                    foundIndex = i;
+                    break;
+                }
+            }
+            return foundIndex;
         }
 
         static void Split(List<int> numbers)
