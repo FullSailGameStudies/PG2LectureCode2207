@@ -5,7 +5,7 @@
         static void Main(string[] args)
         {
 
-            int? number = null;//need a value assigned
+            int number = 0;//need a value assigned
             //scope
             if(false)
             {
