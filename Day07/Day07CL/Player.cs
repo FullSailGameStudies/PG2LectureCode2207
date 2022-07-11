@@ -23,6 +23,7 @@ namespace Day07CL
 
 
         #region Properties
+        public static int NumberOfPlayers { get; set; }
         //gatekeepers of the fields (data)
         //Naming convention: PascalNamingConvention
 
@@ -50,6 +51,29 @@ namespace Day07CL
 
         #region Methods
         //Naming convention: PascalNamingConvention
+
+        //an instance method (non-static)
+        //hidden parameter called "Player this". the instance that the method was called on 
+        public void Move(MoveDirection direction, int numSpaces)
+        {
+            switch (direction)
+            {
+                case MoveDirection.Up:
+                    _y -= numSpaces;
+                    break;
+                case MoveDirection.Down:
+                    _y += numSpaces;
+                    break;
+                case MoveDirection.Left:
+                    this._x -= numSpaces;
+                    break;
+                case MoveDirection.Right:
+                    this._x += numSpaces;
+                    break;
+                default:
+                    break;
+            }
+        }
         #endregion
 
         #region Constructor (c'tor or ctor)
@@ -67,9 +91,13 @@ namespace Day07CL
             _y = y;
             Health = health;
             Name = name;// ?? throw new ArgumentNullException(nameof(name));
+
+            NumberOfPlayers++;
         }
 
         #endregion
+
+
 
     }
 }

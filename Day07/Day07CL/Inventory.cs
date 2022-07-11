@@ -37,5 +37,19 @@ namespace Day07CL
             private set { _items = value; }
         }
         #endregion
+
+        public Inventory(int capacity, List<string> items)
+        {
+            Capacity = capacity;
+            Items = new List<string>(items);//clone
+        }
+
+        public void AddItem(string itemToAdd)
+        {
+            if (Count == Capacity)
+                throw new Exception("our inventory is full, fool!");
+
+            _items.Add(itemToAdd);
+        }
     }
 }
