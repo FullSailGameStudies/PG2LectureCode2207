@@ -12,11 +12,14 @@ namespace Day07CL
         //public: everyone can see it
         //private: ONLY my class can see it
         //protected: my class and my descendent classes (children, grandchildren, etc)
+
+        #region Fields
         //FIELDS:
         // data of our class
         // Naming convention: _camelCasingNamingConvention
         private int _x, _y;
-        private int _health;
+        private int _health; 
+        #endregion
 
 
         #region Properties
@@ -47,6 +50,25 @@ namespace Day07CL
 
         #region Methods
         //Naming convention: PascalNamingConvention
+        #endregion
+
+        #region Constructor (c'tor or ctor)
+        //default constructor. no parameters
+        //public Player()
+        //{
+        //    _x = _y = 0;
+        //    _health = 120;
+        //}
+        public Player(int x, int y, int health, string name)
+        {
+            //x = _x;//BACKWARDS! WRONG!!
+
+            _x = x;
+            _y = y;
+            Health = health;
+            Name = name;// ?? throw new ArgumentNullException(nameof(name));
+        }
+
         #endregion
 
     }
