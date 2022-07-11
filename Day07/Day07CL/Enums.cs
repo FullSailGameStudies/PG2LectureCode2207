@@ -5,4 +5,9 @@ namespace Day07CL
     {
         Up, Down, Left, Right
     }
+
+    public enum WeaponRarity
+    {
+        Common, Uncommon, Rare, Legendary
+    }
 }
