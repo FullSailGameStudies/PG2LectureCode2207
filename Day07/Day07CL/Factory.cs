@@ -14,5 +14,10 @@ namespace Day07CL
             Player player = new Player(x,y,health,name);
             return player;
         }
+
+        public static FantasyWeapon CreateWeapon(WeaponRarity rarity, int level, int maxDamage, int cost)
+        {
+            return new FantasyWeapon(rarity,level,maxDamage,cost);
+        }
     }
 }

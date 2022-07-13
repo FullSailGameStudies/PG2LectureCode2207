@@ -36,9 +36,12 @@ namespace Day07
             }
 
 
-            FantasyWeapon sting = new FantasyWeapon(WeaponRarity.Legendary, 100, 1000, 1000000);
+            FantasyWeapon sting = Factory.CreateWeapon(WeaponRarity.Legendary, 100, 1000, 1000000);
             int damage = sting.DoDamage();
             Console.WriteLine($"We swing sting and do {damage} damage to the rat.");
+
+            Person alfred = new Person("Alfred Pennyworth", 85);
+            Superhero batman = new Superhero("Batman", Superpower.Money, "Bruce Wayne", 35);
         }
     }
 }

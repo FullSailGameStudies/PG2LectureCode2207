@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Day07CL
+{
+    public enum Superpower
+    {
+        Money, Strength, Flight, Teleportation, Speed, Swimming
+    }
+    //Derived class OR Specialization
+    //inheriting EVERYTHING from Person
+    public class Superhero : Person
+    {
+        public Superpower Power { get; set; }
+        public string Identity { get; set; }
+
+        public Superhero() : base("Bruce Wayne", 35)
+        {
+            Power = Superpower.Money;
+            Identity = "Batman";
+        }
+
+        //my derived constructor needs to call the base constructor
+        //base("Bruce",35) same as = new Person("Bruce", 35)
+        public Superhero(string identity, Superpower power, string name, int age) : base(name, age)
+        {
+            Console.WriteLine($"Superhero: {identity}, {power}");
+            Identity = identity;
+            Power = power;
+        }
+    }
+}
