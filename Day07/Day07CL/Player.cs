@@ -47,6 +47,8 @@ namespace Day07CL
 
         //auto-property: compiler provides the backing field
         public string Name { get; set; } = "Bruce";
+
+        public FantasyWeapon EquippedWeapon { get; set; }
         #endregion
 
         #region Methods

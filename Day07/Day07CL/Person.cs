@@ -9,6 +9,8 @@ namespace Day07CL
 {
     public class Person
     {
+        private string _socialSecurity = "123-45-6789";
+        protected double _money = double.MaxValue;
         public string Name { get; set; }
         public int Age { get; set; }
 
