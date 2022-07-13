@@ -11,7 +11,7 @@ namespace Day07
         {
             Player playa;
             //playa = new Player();//create an instance
-            playa = new Player(5, 10, 50, "Bruce Wayne");
+            playa = Factory.MakePlayer(5, 10, 50, "Bruce Wayne");
             playa.Move(MoveDirection.Right, 5);
 
             Player player2 = new Player(20, 5, 75, "Arthur");
