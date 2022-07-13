@@ -8,6 +8,6 @@ namespace Day07CL
 
     public enum WeaponRarity
     {
-        Common, Uncommon, Rare, Legendary
+        Common = 10, Uncommon = 20, Rare = 30, Legendary = 40
     }
 }
