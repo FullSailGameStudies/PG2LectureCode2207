@@ -95,7 +95,9 @@ namespace Day07
                 if (characters[i] is Superhero super)
                     Console.WriteLine($"\t\tAnd I am {super.Identity}! I can {super.Power}!!");
 
+                Console.WriteLine("\nTime to eat!");
                 characters[i].Eat(food);
+                Console.WriteLine("\n");
             }
 
             Console.WriteLine("-------WEAPON RARITY-------");
