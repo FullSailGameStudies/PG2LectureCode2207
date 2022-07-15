@@ -10,4 +10,9 @@ namespace Day07CL
     {
         Common = 10, Uncommon = 20, Rare = 30, Legendary = 40
     }
+
+    public enum Spell
+    {
+        Fire, Lightning, Freeze
+    }
 }
