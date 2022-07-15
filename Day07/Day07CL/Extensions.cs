@@ -30,5 +30,39 @@ namespace Day07CL
             damage += weapon.DoDamage();
             return damage;
         }
+
+        public static List<BowWeapon> Bows(this Inventory backpack)
+        {
+            List<BowWeapon> bows = new();
+            foreach (FantasyWeapon item in backpack.Items)
+            {
+                if (item is BowWeapon bow)//pattern matching
+                    bows.Add(bow);
+            }
+            return bows;
+        }
+
+        public static ConsoleColor GetColor(this WeaponRarity rarity)
+        {
+            ConsoleColor color = ConsoleColor.Gray;
+            switch (rarity)
+            {
+                case WeaponRarity.Common:
+                    color = ConsoleColor.DarkGray;
+                    break;
+                case WeaponRarity.Uncommon:
+                    color = ConsoleColor.Yellow;
+                    break;
+                case WeaponRarity.Rare:
+                    color = ConsoleColor.Green;
+                    break;
+                case WeaponRarity.Legendary:
+                    color = ConsoleColor.Red;
+                    break;
+                default:
+                    break;
+            }
+            return color;
+        }
     }
 }

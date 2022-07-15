@@ -45,6 +45,8 @@ namespace Day07
             backpack.PrintInventory();
             Console.WriteLine("\n");
 
+            List<BowWeapon> bows = backpack.Bows();
+
             Person alfred = new Person("Alfred Pennyworth", 85);
             Superhero batman = new Superhero("Batman", Superpower.Money, "Bruce Wayne", 35);
 
