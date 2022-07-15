@@ -41,7 +41,9 @@ namespace Day07
             Console.WriteLine($"We swing sting and do {damage} damage to the rat.");
             backpack.AddItem(sting);
             backpack.AddItem(new BowWeapon(10, 15, WeaponRarity.Uncommon, 10, 200, 1000));
+            Console.WriteLine();
             backpack.PrintInventory();
+            Console.WriteLine("\n");
 
             Person alfred = new Person("Alfred Pennyworth", 85);
             Superhero batman = new Superhero("Batman", Superpower.Money, "Bruce Wayne", 35);
