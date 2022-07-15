@@ -19,12 +19,22 @@ namespace Day07CL
             ArrowCapacity = arrowCapacity;
         }
 
-        public override int DoDamage()
+        //public override int DoDamage()
+        //{
+        //    if (ArrowCount > 0)
+        //    {
+        //        ArrowCount--;
+        //        return base.DoDamage();
+        //    }
+
+        //    return 0;
+        //}
+        public override int DoDamage(int enchantment = 0)
         {
             if (ArrowCount > 0)
             {
                 ArrowCount--;
-                return base.DoDamage();
+                return base.DoDamage(enchantment);
             }
 
             return 0;

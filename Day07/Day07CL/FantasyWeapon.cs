@@ -21,10 +21,16 @@ namespace Day07CL
             Cost = cost;
         }
 
-        public virtual int DoDamage()
+        //public virtual int DoDamage()
+        //{
+        //    Random randy = new Random();
+        //    return (int)(MaxDamage * randy.NextDouble());
+        //}
+
+        public virtual int DoDamage(int enchantment = 0)
         {
             Random randy = new Random();
-            return (int)(MaxDamage * randy.NextDouble());
+            return (int)( (MaxDamage+ enchantment) * randy.NextDouble());
         }
 
         public virtual void Display()
