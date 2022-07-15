@@ -23,9 +23,14 @@ namespace Day07CL
             Age = age;
         }
 
-        public void Eat(string food)
+        public virtual void Eat(string food)
         {
             Console.WriteLine($"I am eating {food}. nom nom.");
+        }
+
+        public virtual void DoWork()
+        {
+            Console.WriteLine("Sit at my desk to 8+ hours. :-| ");
         }
     }
 }

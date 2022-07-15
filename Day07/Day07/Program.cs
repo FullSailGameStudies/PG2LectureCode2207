@@ -54,6 +54,11 @@ namespace Day07
             //from a derived type (Superhero) to a base type (Person)
             Person bruce = batman;//implicitly doing an UPCAST
 
+            Console.WriteLine("\n");
+            bruce.Eat("Lobster Pomodor");//which Eat method gets called??
+            alfred.Eat("chicken parm");//which Eat method gets called??
+            Console.WriteLine("\n");
+
             //DOWNCASTING
             //NOT SAFE!!
             //from a base type (Person) to a derived type (Superhero)
@@ -83,11 +88,14 @@ namespace Day07
             characters.Add(new Superhero("Catwoman", Superpower.Strength, "Selina Kyle", 25));
             characters.Add(new Person("Jim Gordon", 45));
 
+            string food = "pineapple pizza";
             for (int i = 0; i < characters.Count; i++)
             {
                 Console.WriteLine($"Hi. I am {characters[i].Name} and I am {characters[i].Age} years old.");
                 if (characters[i] is Superhero super)
                     Console.WriteLine($"\t\tAnd I am {super.Identity}! I can {super.Power}!!");
+
+                characters[i].Eat(food);
             }
 
             Console.WriteLine("-------WEAPON RARITY-------");
