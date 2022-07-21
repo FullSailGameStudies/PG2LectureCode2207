@@ -24,6 +24,15 @@
             {
                 //Print(10, 5);
                 DrawTable();
+
+                int num = 0;
+                switch (num)
+                {
+                    case 0:
+                        continue;
+                    default:
+                        break;
+                }
             }
         }
 
